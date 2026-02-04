@@ -1,10 +1,11 @@
-import { cart } from '../data/cart.js';
+import { cart } from '../data/cart.js';import { products } from '..data/products.js';
 
-let productsHTML = ''; products.forEach((product) => {
+let productsHTML = '';
+products.forEach((product) => {
  productsHTML += `
         <div class="product-container">
               <div class="product-image-container">
-                <img class="product-image" src="${product.image}">
+                <img class="product-image" src="${product.image}"> 
               </div>
 
               <div class="product-name limit-text-to-2-lines">
@@ -69,17 +70,14 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
    matchingItem.quantity += 1;
   } else {
    cart.push({ productName: productId, quantity: 1 });
-   }
-   
-   let cartQuatity = 0;
+  }
 
-   cart.forEach((item) => {
-     cartQuatity += item.quantity;
-   });
+  let cartQuatity = 0;
 
-   document.querySelector('.js-cart-quantity')
-   .innerHTML = cartQuatity
+  cart.forEach((item) => {
+   cartQuatity += item.quantity;
+  });
 
-
+  document.querySelector('.js-cart-quantity').innerHTML = cartQuatity;
  });
 });
